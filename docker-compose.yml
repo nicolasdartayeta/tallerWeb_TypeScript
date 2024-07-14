@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  express:
+    image: node:22
+    container_name: express_server
+    volumes:
+      - './NoWaste/express-server:/app'
+    working_dir: '/app'
+    ports:
+    - "3000:3000"
+    command: "npm run start"

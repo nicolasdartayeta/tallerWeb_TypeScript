@@ -1,0 +1,24 @@
+{
+  "name": "express-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf dist && swc ./src -d dist",
+    "start": "node dist/src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^5.5.3"
+  },
+  "devDependencies": {
+    "@swc/cli": "^0.4.0",
+    "@swc/core": "1.7.0-nightly-20240713.1",
+    "@tsconfig/node22": "^22.0.0",
+    "@types/node": "^20.14.10",
+    "rimraf": "^6.0.1"
+  }
+}
