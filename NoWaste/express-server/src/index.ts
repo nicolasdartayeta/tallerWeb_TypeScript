@@ -1,9 +1,11 @@
 import express from 'express';
-
+import dotenv from 'dotenv';
+ 
+dotenv.config();
 const app = express();
  
 app.get('/', async (req, res) => {
-  res.json({ hello: "world" });
+  res.json({ hello: "chau" });
 });
  
 const port = Number(process.env.PORT);
