@@ -1,8 +1,20 @@
 services:
   express-server:
-    build: ./NoWaste/express-server
+    build: ./express-server
     volumes:
-      - ./NoWaste/express-server:/usr/src/app
+      - ./express-server:/usr/src/app
     ports:
       - 3000:3000
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgres://postgres@postgres/webapp_dev
     command: pnpm start:docker
+    
+  postgres:
+    image: postgres:15-alpine
+    ports:
+      - 5432:5432  # enables connecting locally via psql
+    environment:
+      POSTGRES_DB: webapp_dev
+      POSTGRES_HOST_AUTH_METHOD: trust
