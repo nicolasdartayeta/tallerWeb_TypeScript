@@ -1,11 +1,18 @@
 import express from 'express';
 import dotenv from 'dotenv';
- 
+import pg from 'pg';
+
 dotenv.config();
 const app = express();
- 
+app.set('port', process.env.PORT || 3000);
+
+const client = new pg.Client({
+  connectionString: process.env.DATABASE_URL,
+});
+
 app.get('/', async (req, res) => {
-  res.json({ hello: "hola" });
+  await client.connect();
+  res.json({ hello: 5 });
 });
  
 const port = Number(process.env.PORT);

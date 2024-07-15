@@ -8,7 +8,7 @@ services:
     depends_on:
       - postgres
     environment:
-      DATABASE_URL: postgres://postgres@postgres/webapp_dev
+      DATABASE_URL: postgres://postgres@postgres/NoWasteDB
     command: pnpm start:docker
     
   postgres:
@@ -16,5 +16,16 @@ services:
     ports:
       - 5432:5432  # enables connecting locally via psql
     environment:
-      POSTGRES_DB: webapp_dev
+      POSTGRES_DB: NoWasteDB
       POSTGRES_HOST_AUTH_METHOD: trust
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - 5050:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    depends_on:
+      - postgres

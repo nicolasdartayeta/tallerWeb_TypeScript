@@ -2,4 +2,4 @@ express-server/node_modules
 express-server/dist
 express-server/.env
 express-server/.pnpm-store
-.**/DS_Store
+**/.DS_Store
