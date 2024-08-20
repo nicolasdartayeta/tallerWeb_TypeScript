@@ -1,0 +1,6 @@
+{
+    "watch": ["src"],
+    "ext": "tsx,json,html,ts",
+    "ignore": ["src/**/*.spec.ts"],
+    "exec": "vite"
+}

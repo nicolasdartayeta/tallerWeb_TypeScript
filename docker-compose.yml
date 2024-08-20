@@ -10,7 +10,15 @@ services:
     environment:
       DATABASE_URL: postgres://postgres@postgres/NoWasteDB
     command: pnpm start:docker
-    
+
+  react-client:
+    build: ./react-client
+    volumes:
+      - ./react-client:/usr/src/app
+    ports:
+      - 3001:3001
+    command: pnpm run dev
+
   postgres:
     image: postgres:15-alpine
     ports:
